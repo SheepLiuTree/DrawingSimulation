@@ -19,6 +19,8 @@ Window {
     property int titleBarHeight: 48
     property int cornerSize: 16
 
+    property bool showWelcomePage: true
+
     Rectangle {
         id: mainContainer
         anchors.fill: parent
@@ -31,14 +33,33 @@ Window {
             anchors.right: parent.right
             height: rootWindow.titleBarHeight
             window: rootWindow
+            visible: true
+            z: 100
+            showBackButton: !rootWindow.showWelcomePage
+            onBackClicked: {
+                rootWindow.showWelcomePage = true
+            }
         }
 
-        ContentArea {
+        WelcomePage {
+            id: welcomePage
+            anchors.top: titleBar.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            visible: rootWindow.showWelcomePage
+            onStartSimulation: {
+                rootWindow.showWelcomePage = false
+            }
+        }
+
+        DrawingSimulationPage_1 {
             id: contentArea
             anchors.top: titleBar.bottom
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: parent.bottom
+            visible: !rootWindow.showWelcomePage
         }
 
         ResizeHandle {

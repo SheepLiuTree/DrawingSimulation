@@ -6,6 +6,9 @@ import QtQuick.Layouts 1.15
 Rectangle {
     id: root
     property var window
+    property bool showBackButton: false
+
+    signal backClicked()
 
     color: "#181825"
     gradient: Gradient {
@@ -83,6 +86,38 @@ Rectangle {
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
             elide: Text.ElideRight
+        }
+
+        Rectangle {
+            id: backButton
+            width: 32
+            height: 32
+            radius: 8
+            color: "#313244"
+            Layout.alignment: Qt.AlignVCenter
+            visible: root.showBackButton
+
+            Text {
+                anchors.centerIn: parent
+                text: "←"
+                font.pixelSize: 18
+                color: "#cdd6f4"
+                font.family: "Segoe UI"
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: true
+                onEntered: {
+                    parent.color = "#45475a"
+                }
+                onExited: {
+                    parent.color = "#313244"
+                }
+                onClicked: {
+                    root.backClicked()
+                }
+            }
         }
 
         WindowControlButton {

@@ -4,7 +4,10 @@
         <file>qml/CustomTitleBar.qml</file>
         <file>qml/WindowControlButton.qml</file>
         <file>qml/ResizeHandle.qml</file>
-        <file>qml/ContentArea.qml</file>
-        <file>svg/400.svg</file>
+        <file>qml/WelcomePage.qml</file>
+        <file>qml/DrawingSimulationPage_1.qml</file>
+        <file>drawings/Drawing_1.qml</file>
+        <file>qml/ControlButton.qml</file>
+        <file>qml/JogButton.qml</file>
     </qresource>
 </RCC>
