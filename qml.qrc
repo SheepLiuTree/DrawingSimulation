@@ -9,5 +9,12 @@
         <file>drawings/Drawing_1.qml</file>
         <file>qml/ControlButton.qml</file>
         <file>qml/JogButton.qml</file>
+        <file>qml/ToggleSwitch.qml</file>
+        <file>qml/IndicatorLight.qml</file>
+        <file>img/kk_2p.png</file>
+        <file>img/kk_3p.png</file>
+        <file>img/QF.png</file>
+        <file>sound/crash.mp3</file>
+        <file>sound/motor.MP3</file>
     </qresource>
 </RCC>

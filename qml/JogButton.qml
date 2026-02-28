@@ -12,7 +12,8 @@ Rectangle {
     signal released()
 
     width: 100
-    height: 35
+    implicitHeight: 35
+
     color: isPressed ? activeColor : inactiveColor
     radius: 6
 
