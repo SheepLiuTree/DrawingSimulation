@@ -805,7 +805,7 @@ Rectangle {
                                                     Layout.preferredWidth: index === 0 ? 50 : 90
                                                     Layout.preferredHeight: 90
                                                     type: index === 0 ? 2 : 3
-                                                    state: index === 0 ? (mainDrawing.sw_LVC_isRemote ? 2 : 1) : mainDrawing.sw_LVC_ControlMode
+                                                    state: index === 0 ? (mainDrawing.sw_LVC_isRemote ? 1 : 2) : mainDrawing.sw_LVC_ControlMode
                                                     labels: index === 0 ? ["远方", "就地"] : ["自投自复", "手投手复", "自投手复"]
                                                     onToggleStateChanged: function(newState) {
                                                         if (index === 0) {
