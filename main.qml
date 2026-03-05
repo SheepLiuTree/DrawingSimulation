@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
+import QtGraphicalEffects 1.15
 import "qml"
 
 Window {
@@ -11,13 +12,15 @@ Window {
     minimumWidth: 800
     minimumHeight: 600
     visible: true
+    visibility: Window.Maximized
     title: qsTr("Drawing Simulation")
-    color: "#1e1e2e"
+    color: "transparent"
     flags: Qt.FramelessWindowHint | Qt.Window
 
     property int borderWidth: 8
     property int titleBarHeight: 48
     property int cornerSize: 16
+    property int windowRadius: 12
 
     property bool showWelcomePage: true
 
@@ -25,6 +28,16 @@ Window {
         id: mainContainer
         anchors.fill: parent
         color: "#1e1e2e"
+        radius: rootWindow.visibility === Window.Maximized ? 0 : rootWindow.windowRadius
+        clip: true
+        layer.enabled: rootWindow.visibility !== Window.Maximized
+        layer.effect: OpacityMask {
+            maskSource: Rectangle {
+                width: mainContainer.width
+                height: mainContainer.height
+                radius: rootWindow.windowRadius
+            }
+        }
 
         CustomTitleBar {
             id: titleBar

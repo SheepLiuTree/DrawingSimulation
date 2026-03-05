@@ -14,12 +14,14 @@ Rectangle {
                               buttonType === "maximize" ? "#a6e3a1" : "#89b4fa"
     property color pressColor: buttonType === "close" ? "#eba0ac" : 
                                buttonType === "maximize" ? "#94e2d5" : "#74c7ec"
-    property color iconColor: "#a6adc8"
+    property color iconColor: "#cdd6f4"
 
     Connections {
         target: window
         function onVisibilityChanged() {
             iconCanvas.requestPaint()
+            buttonBackground.color = "transparent"
+            root.iconColor = "#cdd6f4"
         }
     }
 
@@ -55,12 +57,12 @@ Rectangle {
             } else if (buttonType === "maximize") {
                 var isMax = window && window.visibility === Window.Maximized
                 if (isMax) {
-                    ctx.strokeRect(2, 4, 10, 8)
+                    ctx.strokeRect(3, 5, 8, 6)
                     ctx.beginPath()
-                    ctx.moveTo(4, 2)
-                    ctx.lineTo(4, 6)
-                    ctx.moveTo(4, 2)
-                    ctx.lineTo(8, 2)
+                    ctx.moveTo(5, 3)
+                    ctx.lineTo(5, 5)
+                    ctx.moveTo(5, 3)
+                    ctx.lineTo(7, 3)
                     ctx.stroke()
                 } else {
                     ctx.strokeRect(2, 2, 10, 10)
@@ -89,7 +91,7 @@ Rectangle {
 
         onExited: {
             buttonBackground.color = "transparent"
-            root.iconColor = "#a6adc8"
+            root.iconColor = "#cdd6f4"
         }
 
         onPressed: {

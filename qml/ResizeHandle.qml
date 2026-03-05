@@ -7,11 +7,15 @@ MouseArea {
     property string resizeEdge: "right"
     property int borderWidth: 8
     property int cornerSize: 16
+    property int windowRadius: 12
 
     property point startPos: Qt.point(0, 0)
     property point startGeometry: Qt.point(0, 0)
     property int startWidth: 0
     property int startHeight: 0
+
+    property bool isCorner: resizeEdge === "topLeft" || resizeEdge === "topRight" || 
+                          resizeEdge === "bottomLeft" || resizeEdge === "bottomRight"
 
     hoverEnabled: true
     cursorShape: {

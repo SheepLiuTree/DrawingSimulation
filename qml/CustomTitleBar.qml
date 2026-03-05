@@ -57,7 +57,7 @@ Rectangle {
         anchors.leftMargin: 12
         anchors.rightMargin: 8
         spacing: 12
-        z: 1
+        z: 10
 
         Rectangle {
             id: appIcon
@@ -96,6 +96,7 @@ Rectangle {
             color: "#313244"
             Layout.alignment: Qt.AlignVCenter
             visible: root.showBackButton
+            z: 20
 
             Text {
                 anchors.centerIn: parent
@@ -125,6 +126,7 @@ Rectangle {
             Layout.alignment: Qt.AlignVCenter
             buttonType: "minimize"
             window: root.window
+            z: 20
         }
 
         WindowControlButton {
@@ -132,6 +134,7 @@ Rectangle {
             Layout.alignment: Qt.AlignVCenter
             buttonType: "maximize"
             window: root.window
+            z: 20
         }
 
         WindowControlButton {
@@ -139,6 +142,7 @@ Rectangle {
             Layout.alignment: Qt.AlignVCenter
             buttonType: "close"
             window: root.window
+            z: 20
         }
     }
 }
