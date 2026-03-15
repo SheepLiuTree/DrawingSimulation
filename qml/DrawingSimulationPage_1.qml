@@ -22,15 +22,15 @@ Rectangle {
             clip: true
 
             property real scaleValue: 1
-            property real minScale: 0.75
+            property real minScale: 1.25
             property real maxScale: 20.0
             antialiasing: true
 
             Flickable {
                 id: flickable
                 anchors.fill: parent
-                contentWidth: Math.max(mainDrawing.width * leftPanel.scaleValue, flickable.width)
-                contentHeight: Math.max(mainDrawing.height * leftPanel.scaleValue, flickable.height)
+                contentWidth: Math.max(mainDrawing.width, flickable.width)
+                contentHeight: Math.max(mainDrawing.height, flickable.height)
                 clip: true
                 boundsBehavior: Flickable.StopAtBounds
                 antialiasing: true
@@ -38,14 +38,16 @@ Rectangle {
                 Item {
                     id: svgContainer
                     transformOrigin: Item.TopLeft
-                    width: Math.max(mainDrawing.width * leftPanel.scaleValue, flickable.width)
-                    height: Math.max(mainDrawing.height * leftPanel.scaleValue, flickable.height)
+                    width: Math.max(mainDrawing.width, flickable.width)
+                    height: Math.max(mainDrawing.height, flickable.height)
                     antialiasing: true
 
                     Drawing_1 {
                         id: mainDrawing
                         anchors.centerIn: parent
-                        scale: leftPanel.scaleValue
+                        width: implicitWidth * leftPanel.scaleValue
+                        height: implicitHeight * leftPanel.scaleValue
+                        viewScale: leftPanel.scaleValue
                         antialiasing: true
 
                         sw_1QF: true
